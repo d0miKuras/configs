@@ -9,6 +9,7 @@ require "paq" {
 	"prabirshrestha/asyncomplete.vim";
 	"mhinz/vim-signify";
 	{"neoclide/coc.nvim",·branch="release"};
+	"morhetz/gruvbox";
 }
 local wo = vim.wo
 local g = vim.g
@@ -35,8 +36,18 @@ vim.cmd([[
 	autocmd InsertEnter * match ExtraWhitespace /\s\+\%#\@<!$/
 	autocmd InsertLeave * match ExtraWhitespace /\s\+$/
 	autocmd BufWinLeave * call clearmatches()
-	]])
+" Coc CSS
+" Use tab for trigger completion with characters ahead and navigate.
+" NOTE: Use command ':verbose imap <tab>' to make sure tab is not mapped by
+" other plugin before putting this into your config.
+inoremap <silent><expr> <TAB>
+      \ coc#pum#visible() ? coc#pum#next(1):
+      \ CheckBackspace() ? "\<Tab>" :
+      \ coc#refresh()
+inoremap <expr><S-TAB> coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"
+]])
 
+vim.cmd('colorscheme gruvbox')
 vim.cmd('command NT NERDTree')
 vim.cmd('command FN Telescope find_files')
 vim.cmd('command FT Telescope live_grep')
