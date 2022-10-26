@@ -13,6 +13,7 @@
 :set updatetime=300
 :set signcolumn=yes
 let g:ale_disable_lsp = 1
+let g:python3_host_prog='C:/Users/domin/AppData/Local/Programs/Python/Python311/python'
 :set autoread
 :set background=dark
 :colorscheme gruvbox
@@ -30,6 +31,7 @@ Plug 'nvim-treesitter/nvim-treesitter'
 Plug 'ziglang/zig.vim'
 Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
+Plug 'puremourning/vimspector'
 call plug#end()
 "" COC START ================================================
 inoremap <silent><expr> <TAB>
@@ -67,7 +69,15 @@ vnoremap <leader>P "+P
 
 "" let g:everforest_background = 'soft'
 let g:ale_linters = { 'cs': ['omnisharp'] }
-
+"" VIMSPECTOR START ========================================
+let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
+""packadd! vimspector
+let g:vimspector_install_gadgets = [ 'netcoredbg', 'vscode-cpptools' ]
+" for normal mode - the word under the cursor
+nmap <Leader>di <Plug>VimspectorBalloonEval
+" for visual mode, the visually selected text
+xmap <Leader>di <Plug>VimspectorBalloonEval
+"" VIMSPECTOR END ==========================================
 nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
