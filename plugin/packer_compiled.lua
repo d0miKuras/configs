@@ -110,6 +110,11 @@ _G.packer_plugins = {
     path = "C:\\Users\\domin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\cmp_luasnip",
     url = "https://github.com/saadparwaiz1/cmp_luasnip"
   },
+  ctags = {
+    loaded = true,
+    path = "C:\\Users\\domin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\ctags",
+    url = "https://github.com/universal-ctags/ctags"
+  },
   ["fidget.nvim"] = {
     loaded = true,
     path = "C:\\Users\\domin\\AppData\\Local\\nvim-data\\site\\pack\\packer\\start\\fidget.nvim",

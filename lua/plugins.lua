@@ -49,7 +49,7 @@ packer.startup(function(use)
     }
     -- Treesitter highlight colorizer
     use 'p00f/nvim-ts-rainbow'
-
+    use 'universal-ctags/ctags'
 
     -- Icons
     use 'kyazdani42/nvim-web-devicons'
