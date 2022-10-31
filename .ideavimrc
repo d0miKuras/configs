@@ -1,0 +1,41 @@
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+set scrolloff=5
+set ideajoin
+set incsearch
+set vb
+set relativenumber
+set vb
+set sc
+set surround
+set ideastatusicon=enabled
+
+let mapleader = "\"
+
+" " Copy to clipboard
+vnoremap  <leader>y  "+y
+nnoremap  <leader>Y  "+yg_
+nnoremap  <leader>y  "+y
+nnoremap  <leader>yy  "+yy
+vnoremap < <gv
+vnoremap > >gv
+" " Paste from clipboard
+nnoremap <leader>p "+p
+nnoremap <leader>P "+P
+vnoremap <leader>p "+p
+vnoremap <leader>P "+P
+
+nmap gd <action>(GotoDeclaration)
+nmap gi <action>(GotoImplementation)
+nmap <C--> <action>(JumpToLastChange)
+nmap <C-a> <action>(ShowIntentionActions)
+nmap <C-k>d <action>(ReformatCode)
+nmap gu <action>(FindUsages)
+nmap { <Action>(MethodUp)
+nmap } <Action>(MethodDown)
+nmap gb <Action>(Back)
+nmap gf <Action>(Forward)
+set NERDTree
+let g:NERDTreeMapActivateNode='l'
+let g:NERDTreeMapJumpParent='h'
+nnoremap nt :NERDTree<CR>
