@@ -1,0 +1,10 @@
+:lua require('base')
+:lua require('configuration')
+:lua require('mason-config')
+:lua require('highlights')
+:lua require('maps')
+:lua require('lsp')
+:lua require('plugins')
+:lua require('nvim-cmp')
+:lua require('clangd_extensions')
+colorscheme gruvbox
