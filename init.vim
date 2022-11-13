@@ -32,6 +32,9 @@ Plug 'ziglang/zig.vim'
 Plug 'morhetz/gruvbox'
 Plug 'jiangmiao/auto-pairs'
 Plug 'puremourning/vimspector'
+Plug 'numToStr/Comment.nvim'
+Plug 'mhartington/formatter.nvim'
+Plug 'sbdchd/neoformat'
 call plug#end()
 "" COC START ================================================
 inoremap <silent><expr> <TAB>
@@ -48,7 +51,7 @@ function! CheckBackspace() abort
   return !col || getline('.')[col - 1]  =~# '\s'
 endfunction
 "" COC END ==================================================
-
+:lua require('Comment').setup()
 nnoremap ff <cmd>Telescope find_files<cr>
 nnoremap fg <cmd>Telescope live_grep<cr>
 nnoremap fb <cmd>Telescope buffers<cr>
@@ -67,7 +70,7 @@ vnoremap <leader>p "+p
 vnoremap <leader>P "+P
 
 "" let g:everforest_background = 'soft'
-let g:ale_linters = { 'cs': ['omnisharp'] }
+let g:ale_linters = { 'cs': ['omnisharp'], 'vim' : ['vint'], 'cpp' : ['clang'], 'c' : ['clang'] }
 "" VIMSPECTOR START ========================================
 let g:vimspector_enable_mappings = 'VISUAL_STUDIO'
 ""packadd! vimspector
@@ -82,13 +85,22 @@ nmap <silent> gy <Plug>(coc-type-definition)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 nnoremap <silent> <C-A> <cmd>OmniSharpGetCodeActions<cr>
-
 inoremap <expr> <cr> coc#pum#visible() ? coc#pum#confirm() : "\<CR>"
+
 if has('nvim')
 	inoremap <silent><expr> <c-space> coc#refresh()
 else
 	inoremap <silent><expr> <c-@> coc#refresh()
 endif
+
+" custom setting for clangformat
+let g:neoformat_cpp_clangformat = {
+    \ 'exe': 'clang-format',
+    \ 'args': ['--style="{IndentWidth: 4}"']
+\}
+let g:neoformat_enabled_cpp = ['clangformat']
+let g:neoformat_enabled_c = ['clangformat']
+nnoremap <silent>cf :Neoformat<cr>
 
 syntax on
 
