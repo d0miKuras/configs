@@ -1,0 +1,18 @@
+:set number 
+:set relativenumber
+:set autoindent
+:set tabstop=4
+:set shiftwidth=4
+:set softtabstop=4
+:set ignorecase
+
+nmap gD :vsc Edit.GoToDeclaration<CR>
+nmap gd :vsc Edit.GoToDefinition<CR>
+nmap gr :vsc Edit.FindAllReferences<CR>
+nmap ff :vsc Edit.GoToAll<CR>
+nmap nt :vsc View.SolutionExplorer<CR>
+map <C-a> :vsc View.QuickActions<CR>
+map <C-k>d :vsc Edit.FormatDocument<CR>
+nmap :tabca<CR> :vsc Window.CloseAllDocuments<CR>
+nmap :tabo<CR> :vsc File.CloseAllButThis<CR>
+nmap :tabcl<CR> :vsc Window.Close<CR>
